@@ -1,0 +1,92 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {  
+  height: 30vmin;
+  pointer-events: none;
+}
+
+.loginavatar {
+  height: 40px;
+  border-radius: 25px;  
+}
+
+.avatar {
+  height: 100px;
+  border-radius: 5px;
+  margin: 10px auto 10px auto;
+}
+
+.progress-bar {
+  background-color: #ff9f1c;
+}
+
+.select-control {
+  background: #f7f7f7 none repeat scroll 0 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 30px;
+  width: 150px;
+  line-height: 30px;
+}
+
+
+.form-control {
+  background: #f7f7f7 none repeat scroll 0 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 50px;
+  line-height: 50px;
+  margin-bottom: 15px;
+}
+
+
+.btn {
+    
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,.29);
+  cursor: pointer;
+  background: rgba(51,189,168);  
+  font-size: 16px;
+  width: 150px;
+  position: relative;
+  color:  #F5F7F6;
+  
+}
+
+.dashboard {
+  margin-right: 10px;
+}
+
+
+
+.navitem {
+  margin-right: 10px;
+}
+
+.active {
+  font-weight: bold;
+  background: #2CA08D;  
+}
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+
