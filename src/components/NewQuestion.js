@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {handleAddQuestion} from '../actions/shared';
-import {Redirect} from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { handleAddQuestion } from '../actions/shared';
+import { Redirect } from 'react-router-dom';
 
-class NewQuestion extends Component{
+class NewQuestion extends Component {
     state = {
         optionOneText: '',
         optionTwoText: '',
-        toDashboard: false        
+        toDashboard: false
     };
 
     handleFirstOption = (e) => {
@@ -25,11 +25,11 @@ class NewQuestion extends Component{
     handleSubmit = (e) => {
         e.preventDefault();
 
-        const {optionOneText, optionTwoText} = this.state;
-        const {dispatch} = this.props;
-        console.log('===========Txt values =========' );
-       console.log(optionOneText);
-       console.log(optionTwoText);
+        const { optionOneText, optionTwoText } = this.state;
+        const { dispatch } = this.props;
+        console.log('===========Txt values =========');
+        console.log(optionOneText);
+        console.log(optionTwoText);
         dispatch(handleAddQuestion(optionOneText, optionTwoText, () => {
             this.setState({
                 optionOneText: '',
@@ -39,45 +39,123 @@ class NewQuestion extends Component{
         }));
     };
 
-    render(){
-        const {optionOneText,optionTwoText,toDashboard} = this.state
+    render() {
+        const { optionOneText, optionTwoText, toDashboard } = this.state
         if (toDashboard === true) {
-            return <Redirect to='/'/>;
+            return <Redirect to='/' />;
         }
         return (
-            <div className='App'>
+            <div className="row">
+                <div className="col-4">
+                </div>
+                <div className="col-4">
+                    <div className="card">
+                        <div className="card-header">
+                            <div className="row">
+                                <div className="col-12">
+                                    <div className="card-title">
+                                        Create New Question
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="card-body">
+                            <form onSubmit={this.handleSubmit}>
+                                <div className="row">
+                                    <div className="col-12">
+                                        <h5 className="card-title">would you rather...</h5>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-12">
+                                        <div className="form-group">
+                                            <input
+                                                type='text'
+                                                className='form-control'
+                                                placeholder='Enter option one text here...'
+                                                value={optionOneText}
+                                                onChange={this.handleFirstOption}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-5">
+                                        <hr />
+                                    </div>
+                                    <div className="col-2">
+                                        OR
+                                    </div>
+                                    <div className="col-5">
+                                        <hr />
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-12">
+                                        <div className="form-group">
+                                            <input
+                                                type='text'
+                                                className='form-control'
+                                                placeholder='Enter option one text here...'
+                                                value={optionOneText}
+                                                onChange={this.handleFirstOption}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="row">
+                                    <div className="col-12">
+                                        <input type='submit'
+                                            name='submit'
+                                            id='submit'
+                                            value="Submit"
+                                            className='btn btn-primary btn-block'
+                                            disabled={optionOneText === '' || optionTwoText === ''}
+                                        />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-4">
+                </div>
+            </div>
+
+            /* <div className='App'>
                 <div ><strong>Create New Question</strong></div>
                 <div>
                     <p><strong>Would You Rather...?</strong></p>
                     <form onSubmit={this.handleSubmit}>
-                            <div>
+                        <div>
                             <input
                                 className='form-control'
                                 placeholder='Enter option one text here...'
                                 value={optionOneText}
                                 onChange={this.handleFirstOption}
                             />
-                            </div>
-                            <div>                                              
+                        </div>
+                        <div>
                             <input
                                 className='form-control'
                                 placeholder='Enter option two text here...'
                                 value={optionTwoText}
                                 onChange={this.handleSecondOption}
                             />
-                            </div>
-                            <div>
+                        </div>
+                        <div>
                             <input type='submit'
-                                    name='submit'
-                                    id='submit'
-                                    value= "Submit"
-                                    className='btn'
-                                    disabled={ optionOneText === '' || optionTwoText === '' } 
+                                name='submit'
+                                id='submit'
+                                value="Submit"
+                                className='btn'
+                                disabled={optionOneText === '' || optionTwoText === ''}
                             />
-                            </div>
+                        </div>
                     </form>
-                    </div>
-            </div>
+                </div>
+            </div> */
         );
     }
 

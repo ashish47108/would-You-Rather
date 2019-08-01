@@ -1,6 +1,8 @@
 import React, {Component, Fragment} from 'react';
 import logo from './logo.svg';
-import './App.css';
+import 'semantic-ui-css/semantic.min.css'
+import 'bootstrap/dist/css/bootstrap.css';
+
 import {connect} from 'react-redux';
 import Login from './components/Login';
 import {BrowserRouter as Router, Switch, Route, withRouter, Redirect} from 'react-router-dom';
@@ -25,9 +27,10 @@ class App extends Component {
       <Router>
         <Fragment>        
           <LoadingBar />
+            
             {
               this.props.authenticated == null 
-                ? null
+                ? <Navigationbar loggedInUser={'undefined'}/>
                 : <Navigationbar loggedInUser={this.props.loggedInUser}/>
             }
           <div>

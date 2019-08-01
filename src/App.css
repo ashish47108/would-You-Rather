@@ -3,23 +3,27 @@
 }
 
 .App-logo {  
-  height: 30vmin;
+  height: 35vmin;
   pointer-events: none;
 }
 
 .loginavatar {
-  height: 40px;
-  border-radius: 25px;  
+  height: 32px;
+  border-radius: 8px;  
 }
+
+.leaderboardavatar {
+  height: 80px;
+  border-radius: 5px;
+  margin: 10px auto 10px auto;
+}
+
+
 
 .avatar {
   height: 100px;
   border-radius: 5px;
   margin: 10px auto 10px auto;
-}
-
-.progress-bar {
-  background-color: #ff9f1c;
 }
 
 .select-control {
@@ -28,8 +32,9 @@
   border-radius: 4px;
   font-size: 14px;
   height: 30px;
-  width: 150px;
+  width: 100%;
   line-height: 30px;
+  margin-bottom: 4px;
 }
 
 
@@ -44,7 +49,7 @@
 }
 
 
-.btn {
+.btnMy {
     
   margin: 10px auto;
   padding: 10px;
@@ -59,18 +64,14 @@
 }
 
 .dashboard {
+  margin-top: 5px;
   margin-right: 10px;
+  margin-bottom: 5px;
 }
 
-
-
-.navitem {
-  margin-right: 10px;
-}
-
-.active {
+.clickedButton {
   font-weight: bold;
-  background: #2CA08D;  
+  background: rgba(0,80,168);    
 }
 
 
@@ -89,4 +90,89 @@
   color: #61dafb;
 }
 
+.card{
+  margin-bottom: 5px
+}
 
+.card-body
+{
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.card-header
+{
+  padding-bottom: 0rem !important;
+}
+
+.dashboardBorder{
+  border: 3px solid #eee;
+  border-radius: 7px;
+}
+
+.box-border-right
+{
+  border-right: 1px solid #eee;
+}
+.box-border-left
+{
+  border-left: 1px solid #eee;
+}
+
+.box-border-bottom
+{
+  border-bottom:  1px solid #eee;
+  
+}
+
+.CardBackground
+{
+  background-color: lightgreen;
+}
+
+.badgeCustom
+{
+  margin-top: -15px;
+  padding-left: 6px;
+  font-size: 11px;
+  width: 35px;
+  position: absolute;
+  margin-left: 205px;
+  background: yellow;
+  border-radius: 50%;
+}
+
+.navbar{
+  border-bottom:3px solid rgb(115, 179, 248);
+  padding-bottom: 0%;
+  margin-bottom: 15px;
+}
+
+.nan-link{
+  padding: 0%;
+}
+
+.navbar-nav.mr-auto{
+  margin-left: 50%;
+  height: 50px;
+  transform: translatex(-50%);
+}
+
+.nav-item{
+  width: auto;
+  white-space: nowrap;
+}
+
+.nav-link {
+  color: rgba(0, 0, 0, 0.13);
+}
+
+.navMenuActive {  
+    font-weight: bold;
+    color: #080808
+}
+
+.badge-secondary {
+  color: black;
+  background-color: yellow;
+}
