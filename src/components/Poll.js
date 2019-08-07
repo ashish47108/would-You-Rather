@@ -50,51 +50,7 @@ class Poll extends Component {
         }
 
         return (
-            /* <div className='App'>
-                <div>{author.name} asks would you rather...</div>
-                <div>
-                    <img src={author.avatarURL}
-                            alt={`Avatar of ${author.name}`}
-                            className='avatar'/>
-                </div>
-                <div>
-                    <form onSubmit={(e) => this.handleSubmit(e, id)}>
-                        <div>
-                            <input 
-                                    type="radio"
-                                    name="questionPoll"
-                                    id="optionOne"
-                                    value="optionOne"
-                                    onChange={this.handleInputChange}
-                            />
-                            <label                                
-                                htmlFor="optionOne">
-                                {question.optionOne.text}
-                            </label>
-                        </div>
-                        <div >
-                            <input 
-                                    type="radio"
-                                    name="questionPoll"
-                                    id="optionTwo"
-                                    value="optionTwo"
-                                    onChange={this.handleInputChange}
-                            />
-                            <label                                
-                                htmlFor="exampleRadios2">
-                                {question.optionTwo.text}
-                            </label>
-                        </div>
-                        <button
-                            className='btn'
-                            type='submit'
-                            disabled={optionSelected === ''}
-                        >
-                            Submit
-                        </button>
-                    </form>
-                </div>
-            </div> */
+            
             <div className="row">
                 <div className="col-4">
                 </div>
@@ -181,10 +137,7 @@ class Poll extends Component {
 }
 
 function mapStateToProps({ authedUser, questions, users, match }, props) {
-    console.log('match paramters ');
-    console.log(match);
-    console.log(props);
-    console.log('======End========');
+    
 
     const { id } = props.match.params;
 

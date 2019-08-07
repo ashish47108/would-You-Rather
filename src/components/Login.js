@@ -19,15 +19,13 @@ class Login extends Component {
     }
 
     handleChange = (e,data) => {
-        //console.log(e);
-        console.log(data.value);
-        //const selectedUser = e.target.value;
+        
         const selectedUser = data.value;
 
         this.setState(() => ({
             selectedUser
         }));
-        console.log('selected user in state ' + selectedUser);
+        
     };
 
     handleSubmit = (e) => {
@@ -35,8 +33,7 @@ class Login extends Component {
 
         const { dispatch } = this.props;
 
-        dispatch(handleLogin(this.state.selectedUser));
-        console.log('selected user in submit ' + this.state.selectedUser);
+        dispatch(handleLogin(this.state.selectedUser));        
     };
 
     render() {
@@ -45,18 +42,15 @@ class Login extends Component {
         }
 
         const { from } = this.props.location.state || { from: { pathname: '/' } };
-        console.log("hhhhhhhh");
-        console.log(this.props.location.state);
-        console.log(from);
-        console.log(this.props.isAuthenticated);
+        
 
         if (this.props.isAuthenticated) {
-            console.log("redirection happend-*************--------------------------------------");
             return <Redirect to={from} />;
         }
 
         return (
             <div>
+                
                 <LoadingBar />
                 <div className="row">
                     <div className="col-4">
@@ -77,23 +71,12 @@ class Login extends Component {
 
                                 <div className="row">
                                     <div className="col">
-                                        <img src={logo} className="App-logo" alt="logo" />
+                                        <img src={logo} className="app-logo" alt="logo" />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        Sign In
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col">
-                                        <Dropdown
-                                            placeholder='Select User'
-                                            fluid
-                                            selection
-                                            options={this.props.userArray}
-                                            onChange={this.handleChange} 
-                                        />
+                                        <h5>Sign In</h5>
                                     </div>
                                 </div>
                                 <div className="row">
@@ -101,16 +84,14 @@ class Login extends Component {
                                         <form id="Login" onSubmit={this.handleSubmit}>
                                             <div className="row" >
                                                 <div className="col">
-                                                    <select className="select-control" id="userId"
-                                                        onChange={(e) => this.handleChange(e)}>
-                                                        <option></option>
-                                                        {
-                                                            Object.keys(this.props.users).map((user) => {
-                                                                return <option key={this.props.users[user].id}
-                                                                    value={this.props.users[user].id}>{this.props.users[user].name}</option>
-                                                            })
-                                                        }
-                                                    </select>
+                                                <Dropdown
+                                                    className='symentic-select'
+                                                    placeholder='Select User'
+                                                    fluid
+                                                    selection
+                                                    options={this.props.userArray}
+                                                    onChange={this.handleChange} 
+                                                />
                                                 </div>
                                             </div>
                                             <div className="row">
@@ -133,32 +114,9 @@ class Login extends Component {
     }
 }
 
-/*
-<div className="App">
-                    <h3 >Welcome to the Would You Rather App!</h3>
-                    <p>Please Sign in to continue</p>
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h3>Sign in</h3>
-                    <form id="Login" onSubmit={this.handleSubmit}>
-                        <div >
-                            <select className="select-control" id="userId"
-                                onChange={(e) => this.handleChange(e)}>
-                                <option></option>
-                                {
-                                    Object.keys(this.props.users).map((user) => {
-                                        return <option key={this.props.users[user].id}
-                                            value={this.props.users[user].id}>{this.props.users[user].name}</option>
-                                    })
-                                }
-                            </select>
-                        </div>
-                        <button type="submit" className="btn" disabled={this.state.selectedUser === ''}>Login</button>
-                    </form>
-                </div>*/
 
 function mapStateToProps({ users, authedUser }) {
-    console.log('----------------------------------');
-    console.log(authedUser);
+    
 
     const userArray = Object.keys(users).map((user) => {
         const userInfo = {

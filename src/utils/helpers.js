@@ -19,13 +19,7 @@ export function formatQuestion(question, author, authedUser) {
         optionOne,
         optionTwo,
         hasVoted: optionOne.votes.includes(authedUser) || optionTwo.votes.includes(authedUser)
-        // likes: likes.length,
-        // replies: replies.length,
-        // hasLiked: likes.includes(authedUser),
-        // parent: !parentQuestion ? null : {
-        //     author: parentQuestion.author,
-        //     id: parentQuestion.id,
-        // }
+        
     }
 }
 

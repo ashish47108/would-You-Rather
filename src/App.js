@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import logo from './logo.svg';
+
 import 'semantic-ui-css/semantic.min.css'
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -24,10 +24,11 @@ class App extends Component {
   
   render(){
     return(
+      
       <Router>
+        
         <Fragment>        
-          <LoadingBar />
-            
+          <LoadingBar />            
             {
               this.props.authenticated == null 
                 ? <Navigationbar loggedInUser={'undefined'}/>
@@ -39,9 +40,10 @@ class App extends Component {
               :
                 this.props.authenticated 
                 ? <div>
+                
                     <Switch>
-                      <Route path='/' exact component={Dashboard} />
-                      <Route path="/login" exact component={withRouter(Login)} />  
+                      <Route path='/' exact component={Dashboard} />                                            
+                      <Route exact path="/login" render={() => (<Redirect to="/" />)} />   
                       <Route path="/logout" exact component={withRouter(Logout)} />
                       <Route path='/question/:id' exact component={Poll} />
                       <Route path='/question/:id/results' exact component={PollResult} />
@@ -50,7 +52,9 @@ class App extends Component {
                     </Switch>  
                   </div>
                 :
+                  <div>                  
                   <Route component={withRouter(Login)} /> 
+                  </div>
             }        
           </div>
         </Fragment>

@@ -1,8 +1,4 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {  
+.app-logo {  
   height: 35vmin;
   pointer-events: none;
 }
@@ -19,21 +15,15 @@
 }
 
 
-
 .avatar {
   height: 100px;
   border-radius: 5px;
   margin: 10px auto 10px auto;
 }
 
-.select-control {
-  background: #f7f7f7 none repeat scroll 0 0;
-  border: 1px solid #d4d4d4;
-  border-radius: 4px;
-  font-size: 14px;
-  height: 30px;
-  width: 100%;
-  line-height: 30px;
+
+.symentic-select {
+  margin-top: 4px;
   margin-bottom: 4px;
 }
 
@@ -48,21 +38,6 @@
   margin-bottom: 15px;
 }
 
-
-.btnMy {
-    
-  margin: 10px auto;
-  padding: 10px;
-  border: 1px solid rgba(0,0,0,.29);
-  cursor: pointer;
-  background: rgba(51,189,168);  
-  font-size: 16px;
-  width: 150px;
-  position: relative;
-  color:  #F5F7F6;
-  
-}
-
 .dashboard {
   margin-top: 5px;
   margin-right: 10px;
@@ -74,21 +49,6 @@
   background: rgba(0,80,168);    
 }
 
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
 
 .card{
   margin-bottom: 5px
@@ -130,17 +90,6 @@
   background-color: lightgreen;
 }
 
-.badgeCustom
-{
-  margin-top: -15px;
-  padding-left: 6px;
-  font-size: 11px;
-  width: 35px;
-  position: absolute;
-  margin-left: 205px;
-  background: yellow;
-  border-radius: 50%;
-}
 
 .navbar{
   border-bottom:3px solid rgb(115, 179, 248);
@@ -172,7 +121,6 @@
     color: #080808
 }
 
-.badge-secondary {
-  color: black;
-  background-color: yellow;
+.leaderBoard-Border {
+  margin-bottom: 5px;
 }

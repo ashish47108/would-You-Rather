@@ -2,18 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const PollResult = (props) => {
-    const { question, author, pageNotFound } = props;
+    const { question, author, pageNotFound, authedUser } = props;
 
     if (pageNotFound === true) {
         return (
             <div>
-                <img className="page-not-found-image" src="/404.jpg" alt="" />
+                <h1>Error: 404</h1>
+                <h1> Page Not Found</h1>
             </div>
         );
     }
 
     const totalVotes = question.optionOne.votes.length + question.optionTwo.votes.length;
-    const optionSelected = question.optionOne.votes.includes(author.id) ? "optionOne" : "optionTwo";
+    const optionSelected = question.optionOne.votes.includes(authedUser.loggedInUser.id) ? "optionOne" : "optionTwo";
 
     let optionOneWidth = Math.round((question.optionOne.votes.length / totalVotes) * 100);
     let optionTwoWidth = Math.round((question.optionTwo.votes.length / totalVotes) * 100);
@@ -47,9 +48,9 @@ const PollResult = (props) => {
                                     <h5 className='card-title'>Results</h5>
                                 </div>
                                 <div className='row'>
-                                    <div className="card">                                    
-                                        {optionSelected === 'optionOne' ? <span class="badge badge-secondary">Your Vote</span> : null  }
-                                        <div className={optionSelected === 'optionOne' ? "card-body CardBackground" : "card-body"  }>                                            
+                                    <div className="card">
+                                        <div className={optionSelected === 'optionOne' ? "card-body CardBackground" : "card-body"}>
+                                            {optionSelected === 'optionOne' ? <span className="ui blue ribbon label">Your Vote</span> : null}
                                             <div>Would you rather {question.optionOne.text}? </div>
                                             <div className="progress">
                                                 <div className="progress-bar" style={{ width: optionOneWidth + '%' }} role="progressbar" aria-valuenow={optionOneWidth} aria-valuemin="0" aria-valuemax="100"></div>
@@ -60,14 +61,15 @@ const PollResult = (props) => {
                                 </div>
                                 <div className='row'>
                                     <div className="card">
-                                    {optionSelected === 'optionTwo' ? <span class="badge badge-secondary">Your Vote</span> : null  }
-                                        <div className={optionSelected === 'optionTwo' ? "card-body CardBackground" : "card-body"  }> 
-                                                                             
-                                            <div>Would you rather {question.optionTwo.text}? </div>
+                                        <div className={optionSelected === 'optionTwo' ? "card-body CardBackground" : "card-body"}>
+                                            {optionSelected === 'optionTwo' ? <span className="ui blue ribbon label">Your Vote</span> : null}
+                                            <div>
+                                                Would you rather {question.optionTwo.text}?
+                                            </div>
                                             <div className="progress">
                                                 <div className="progress-bar" style={{ width: optionTwoWidth + '%' }} role="progressbar" aria-valuenow={optionOneWidth} aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
-                                                <span>{question.optionTwo.votes.length} out of {totalVotes} votes. ({optionTwoWidth}%)</span>
+                                            <span>{question.optionTwo.votes.length} out of {totalVotes} votes. ({optionTwoWidth}%)</span>
                                         </div>
                                     </div>
                                 </div>
@@ -79,28 +81,14 @@ const PollResult = (props) => {
             <div className="col-4">
             </div>
         </div>
-        /*
-                <div className='App'>
-                    <div>Added by {author.name}</div>
-                    <img src={author.avatarURL}
-                        alt={`Avatar of ${author.name}`}
-                        className='avatar' />
-                    <div>Results:
-                        <div>Would you rather {question.optionOne.text}? </div>
-                        <div>
-                            <span>{question.optionOne.votes.length} out of {totalVotes} votes. ({optionTwoWidth}%)</span>
-                        </div>
-                        <div>Would you rather {question.optionTwo.text}?</div>
-                        <div>
-                            <span>{question.optionTwo.votes.length} out of {totalVotes} votes. ({optionTwoWidth}%)</span>
-                        </div>
-                    </div>
-                </div>*/
+
     )
 
 };
 
-function mapStateToProps({ questions, users }, props) {
+function mapStateToProps({ questions, users, authedUser }, props) {
+
+
     const { id } = props.match.params;
 
     let pageNotFound = true;
@@ -117,7 +105,8 @@ function mapStateToProps({ questions, users }, props) {
         id,
         question: specificQuestion,
         author: author,
-        pageNotFound: pageNotFound
+        pageNotFound: pageNotFound,
+        authedUser: authedUser
     }
 }
 
