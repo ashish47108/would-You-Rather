@@ -28,7 +28,7 @@ const Question = (props) => {
     
 
     return (
-        <div className="card">
+        <div className="card cardDashboard">
             <div className="card-header">
                 <div className="row">
                     <div className="col-12">

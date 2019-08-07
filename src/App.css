@@ -49,7 +49,9 @@
   background: rgba(0,80,168);    
 }
 
-
+.cardDashboard{
+  margin-top: 7px
+}
 .card{
   margin-bottom: 5px
 }
