@@ -39,8 +39,7 @@ class App extends Component {
               ? null
               :
                 this.props.authenticated 
-                ? <div>
-                
+                ? <div>                
                     <Switch>
                       <Route path='/' exact component={Dashboard} />                                            
                       <Route exact path="/login" render={() => (<Redirect to="/" />)} />   

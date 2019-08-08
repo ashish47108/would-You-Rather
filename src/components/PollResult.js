@@ -13,8 +13,11 @@ const PollResult = (props) => {
         );
     }
 
-    const totalVotes = question.optionOne.votes.length + question.optionTwo.votes.length;
-    const optionSelected = question.optionOne.votes.includes(authedUser.loggedInUser.id) ? "optionOne" : "optionTwo";
+    const totalVotes = question.optionOne.votes.length + question.optionTwo.votes.length;    
+
+    const optionSelected = question.optionOne.votes.includes(authedUser.loggedInUser.id) ? "optionOne" : 
+    question.optionTwo.votes.includes(authedUser.loggedInUser.id) ? "optionTwo" : "NoOption";
+
 
     let optionOneWidth = Math.round((question.optionOne.votes.length / totalVotes) * 100);
     let optionTwoWidth = Math.round((question.optionTwo.votes.length / totalVotes) * 100);

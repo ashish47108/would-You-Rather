@@ -5,7 +5,7 @@ import { handleLogin } from '../actions/authedUser';
 import LoadingBar from "react-redux-loading";
 import logo from '../logo.svg';
 import '../App.css';
-import { Redirect } from 'react-router-dom';
+
 import { Dropdown } from 'semantic-ui-react';
 
 
@@ -40,7 +40,7 @@ class Login extends Component {
         if (this.props.loading === true || !this.props.users) {
             return <div />;
         }
-
+        
         return (
             <div>
                 

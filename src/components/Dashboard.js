@@ -1,56 +1,54 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Question from './Question';
-import { Tab } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react'
 
 class Dashboard extends Component {
     state = {
         'questionsToShow': 'unanswered',
     };
 
-    
-
-    handleTabChangeNew = (e, data) => {
+    handleMenuChange = (e, { name }) => {
         
-        if(data.activeIndex ===0)
-        {
+        if (name === 'Unanswered Questions') {
             this.setState(() => ({
                 questionsToShow: 'unanswered'
             }));
         }
-        else{
+        else
+        {
             this.setState(() => ({
                 questionsToShow: 'answered'
             }));
-        }
+
+        }     
 
     };
 
-    panes = [
-        { menuItem: 'Unanswered Questions' },
-        { menuItem: 'Answered Questions' },
-    ]
-
-
     render() {
-        const color ='blue';
+        const color = 'grey';        
         const { questionsToShow } = this.state;
         return (
             <div className="contrainer">
                 <div className="row">
                     <div className="col-3">
-                        
+
                     </div>
                     <div className="col">
-                        <Tab menu={{
-                                color,
-                                attached: true, 
-                                style: {                                    
-                                    justifyContent: "center"
-                                }
-                            }} panes={this.panes} onTabChange={this.handleTabChangeNew} />
+                        <Menu className="menuZeromargin" color={color} widths={2}>
+                            <Menu.Item
+                                name='Unanswered Questions'
+                                active={questionsToShow === 'unanswered'}
+                                onClick={this.handleMenuChange}
+                            />
+                            <Menu.Item
+                                name='Answered Questions'
+                                active={questionsToShow === 'answered'}
+                                onClick={this.handleMenuChange}
+                            />
+                        </Menu>                       
                         <div className="container dashboardBorder">
-                            
+
                             <div className="row">
                                 <div className="col">
                                     {this.props.questionIds.map((id) => {

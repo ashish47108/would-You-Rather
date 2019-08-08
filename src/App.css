@@ -50,11 +50,16 @@
 }
 
 .cardDashboard{
-  margin-top: 7px
+  margin-top: 7px;
 }
 .card{
-  margin-bottom: 5px
+  margin-bottom: 5px;
 }
+
+.menuZeromargin{
+  margin: 0 !important;
+}
+
 
 .card-body
 {
