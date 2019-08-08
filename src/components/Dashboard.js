@@ -26,7 +26,7 @@ class Dashboard extends Component {
     };
 
     render() {
-        const color = 'grey';        
+        const color = 'blue';        
         const { questionsToShow } = this.state;
         return (
             <div className="contrainer">
